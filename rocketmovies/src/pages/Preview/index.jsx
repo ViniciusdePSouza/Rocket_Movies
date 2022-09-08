@@ -1,9 +1,10 @@
 import { Container } from './styles'
+import { Input } from '../../components/Input'
 
 export function Preview() {
   return(
     <Container>
-      <h1>AUEBA</h1>
+      <Input placeholder='Search for a Movie'/>
     </Container>
   )
 }
