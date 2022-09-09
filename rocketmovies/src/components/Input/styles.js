@@ -28,6 +28,10 @@ export const Container = styled.div`
 
         border-radius: 1rem;
     }
+
+    > svg {
+        margin-left: 16px;
+    }
     
 
 `

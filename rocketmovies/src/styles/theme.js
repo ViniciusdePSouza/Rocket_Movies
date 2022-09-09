@@ -8,6 +8,7 @@ export default {
         PINK: "#FF859B",
         BLACK: "#000000",
 
-        GREY: "#948F99"
+        GREY: "#948F99",
+        GREY_TEXT: "#999591"
     }
 }
