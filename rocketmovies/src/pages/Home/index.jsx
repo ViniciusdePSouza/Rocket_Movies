@@ -39,7 +39,7 @@ export function Home() {
           <Card data={{
             title: "Memento",
             tags:[,
-              {id: 1, name: 'Comedy'},
+              {id: 1, name: 'Action'},
               {id: 2, name: 'Drama'}  
             ]
           }}/>

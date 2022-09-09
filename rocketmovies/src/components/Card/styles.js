@@ -39,6 +39,7 @@ export const RatingBox = styled.div`
         align-items: center;
         justify-content: left;
         text-align: left;
+        gap: .8rem;
 
         margin-top: .8rem;
 `
