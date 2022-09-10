@@ -10,6 +10,10 @@ export const Container = styled.div`
     align-items: center;
     gap: 1.2rem;
     
+    border-radius: 10px;
+
+    margin-top: .8rem;
+    
     >input {
         width: 100%;
         height: 5.6rem;
@@ -26,7 +30,7 @@ export const Container = styled.div`
 
         padding: 1.9rem 2.4rem;
 
-        border-radius: 1rem;
+        border-radius: 10px;
     }
 
     > svg {

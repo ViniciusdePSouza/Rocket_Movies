@@ -1,6 +1,7 @@
 import { Container, ButtonAdd, Content, Section } from './styles'
 
 import { Input } from '../../components/Input'
+
 import { Card } from '../../components/Card'
 import { Header } from '../../components/Header'
 import { FiPlus } from 'react-icons/fi'
@@ -45,6 +46,7 @@ export function Home() {
           }}/>
         </Content>
       </div>
+
 
     </Container>
   )
