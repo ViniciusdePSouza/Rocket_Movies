@@ -3,7 +3,7 @@ import { Input } from '../Input'
 
 export function Header(){
     return(
-        <Container>
+        <Container to="/profile">
             <h1>RocketMovies</h1>
             
             <Input 

@@ -1,5 +1,7 @@
 import { Container, FlexContent, Form, ExcludeButton } from './styles'
 
+import { Link } from 'react-router-dom'
+
 import { Header } from '../../components/Header'
 import { MovieItem } from '../../components/MovieItem'
 import { Tag } from '../../components/Tag'
@@ -14,9 +16,9 @@ export function CreateMovie() {
             <Header />
 
             <Form>
-                <a href="#">
+                <Link to="/">
                     <FiArrowLeft /> Voltar
-                </a>
+                </Link>
 
                 <h1>New Movie</h1>
 

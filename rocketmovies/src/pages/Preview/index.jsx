@@ -6,6 +6,8 @@ import Star from '../../assets/starfilled.svg'
 import { Header } from '../../components/Header'
 import { Tag } from '../../components/Tag'
 
+import { Link } from 'react-router-dom'
+
 import { FiClock, FiArrowLeft } from 'react-icons/fi'
 
 export function Preview() {
@@ -14,9 +16,9 @@ export function Preview() {
             <Header />
 
             <Content>
-                <a href="#">
+                <Link to="/">
                     <FiArrowLeft /> Voltar
-                </a>
+                </Link>
 
                 <BoxContent>
                     <h1>Interestellar</h1>

@@ -6,7 +6,7 @@ import { Tag } from '../Tag'
 
 export function Card({ data, ...rest }) {
     return (
-        <Container>
+        <Container to="/preview/:id">
             <h1>{data.title}</h1>
 
             <RatingBox>

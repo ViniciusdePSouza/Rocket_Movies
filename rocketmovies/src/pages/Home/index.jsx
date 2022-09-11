@@ -14,7 +14,7 @@ export function Home() {
       <div>
         <Section>
           <h1>My Movies</h1>
-          <ButtonAdd type="button">
+          <ButtonAdd to="/new">
             <FiPlus />
             Add Movie
           </ButtonAdd>
