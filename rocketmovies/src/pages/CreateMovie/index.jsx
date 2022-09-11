@@ -1,6 +1,7 @@
 import { Container, FlexContent, Form, ExcludeButton } from './styles'
 
 import { Header } from '../../components/Header'
+import { MovieItem } from '../../components/MovieItem'
 import { Tag } from '../../components/Tag'
 import { Input } from '../../components/Input'
 import { Button } from '../../components/Button'
@@ -20,13 +21,19 @@ export function CreateMovie() {
                 <h1>New Movie</h1>
 
                 <FlexContent>
-                    <Input placeholder="Title" name="title"/> 
-                    <Input placeholder="Rate the movie from 0 to 5 stars" name="rate"/> 
+                    <Input placeholder="Title" name="title" />
+                    <Input placeholder="Rate the movie from 0 to 5 stars" name="rate" />
                 </FlexContent>
 
-                <textarea name="obs" id="obs" cols="30" rows="10" placeholder="Observations: "/>
+                <textarea name="obs" id="obs" cols="30" rows="10" placeholder="Observations: " />
 
                 <h2>Markers</h2>
+                
+                <div className="tags">
+                    <MovieItem value="Science Fiction"/>
+                    <MovieItem value="Drama"/>
+                    <MovieItem isNew placeholder="Insert a new tag" />
+                </div>
 
                 <FlexContent>
                     <ExcludeButton type="submit" name="delete"> Exclude Movie</ExcludeButton>
@@ -34,6 +41,7 @@ export function CreateMovie() {
                 </FlexContent>
 
             </Form>
+
         </Container>
     )
 }

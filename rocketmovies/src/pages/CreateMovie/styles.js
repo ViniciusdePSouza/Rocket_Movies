@@ -7,7 +7,6 @@ export const Container = styled.div`
     grid-template-areas: 
     "header"
     "content";
-    
 `
 export const FlexContent = styled.div`
     width: 100%;
@@ -121,5 +120,22 @@ export const Form = styled.form`
         &::placeholder{
             color: ${({ theme }) => theme.COLORS.GREY_TEXT}
         }
+    }
+
+    .tags {
+        width: 100%;
+        background-color: ${({ theme }) => theme.COLORS.BLACK}; 
+
+        padding: 1.6rem;
+
+        display: flex;
+        align-items: center;
+        justify-content: left;
+
+        gap: 2.4rem;
+
+        border-radius: 10px;
+
+        margin-top: 2.4rem;
     }
 `
