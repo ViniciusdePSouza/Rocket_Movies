@@ -6,13 +6,13 @@ import GlobalStyle from './styles/global'
 
 import theme from './styles/theme'
 
-import { Preview } from './pages/Preview'
+import { CreateMovie } from './pages/CreateMovie'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
       <GlobalStyle/>
-        <Preview />
+        <CreateMovie />
     </ThemeProvider>
   </React.StrictMode>
 )

@@ -19,7 +19,7 @@ export const Container = styled.div`
         height: 5.6rem;
 
         background-color: ${({ theme }) => theme.COLORS.BACKGROUND_800};
-        color: ${({ theme }) => theme.COLORS.GREY};
+        color: ${({ theme }) => theme.COLORS.WHITE};
 
         font-size: 1.4rem;
         font-weight: 400;
@@ -31,6 +31,10 @@ export const Container = styled.div`
         padding: 1.9rem 2.4rem;
 
         border-radius: 10px;
+
+        &::placeholder{
+            color: ${({ theme }) => theme.COLORS.GREY_TEXT}
+        }
     }
 
     > svg {
