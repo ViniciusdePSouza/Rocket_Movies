@@ -6,13 +6,13 @@ import GlobalStyle from './styles/global'
 
 import theme from './styles/theme'
 
-import { Profile } from './pages/Profile'
+import { Preview } from './pages/Preview'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
       <GlobalStyle/>
-        <Profile />
+        <Preview />
     </ThemeProvider>
   </React.StrictMode>
 )

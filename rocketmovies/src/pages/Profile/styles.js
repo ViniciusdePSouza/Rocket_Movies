@@ -43,7 +43,7 @@ export const Container = styled.div`
 export const Form = styled.form`
     width: 34rem;
 
-    margin-top: 5.1rem;
+    margin-top: 3.6rem;
 
     display: flex;
     flex-direction: column;
@@ -57,7 +57,7 @@ export const Form = styled.form`
 
 export const Avatar = styled.div`
     position: relative;
-    margin: -120px auto 32px;
+    margin: -13rem auto 1.5rem;
 
     
     width: 18.6rem;
