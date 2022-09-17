@@ -52,6 +52,8 @@ export const Container = styled.div`
 
             border:none;
             background: transparent;
+
+            font-size: 1.2rem;
            }
         }
     }
