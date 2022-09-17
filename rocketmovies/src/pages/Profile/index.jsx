@@ -29,15 +29,17 @@ export function Profile(){
             old_password: oldPassword,
         }
         
-        await updateProfile({ user })
+        await updateProfile({ user, avatarFile })
     }
 
-    function handleUpdateProfile(event){
-        const file = event.target.files[0]
-
+    function handleUpdateProfilePicture(event) {
+        
+        const file = event.target.files[0];
+        
         setAvatarFile(file)
-
+        
         const imgPreview = URL.createObjectURL(file)
+
         setAvatar(imgPreview)
     }
 
@@ -54,11 +56,11 @@ export function Profile(){
                <Avatar>
                     <img src={avatar} alt="User Photo" />
 
-                    <label htmlFor="">
+                    <label htmlFor="avatar">
 
                         <FiCamera/>
 
-                        <input id="avatar" type="file" onChange={handleUpdateProfile}/>
+                        <input id="avatar" type="file" onChange={handleUpdateProfilePicture}/>
                     </label>
                </Avatar>
 
@@ -68,7 +70,7 @@ export function Profile(){
                <Input icon={FiLock} placeholder="New passowrd" type="password" onChange={e => setNewPassword(e.target.value)}/>
 
 
-               <Button type="submit" title="Save Changes" onClick={handleUpdateProfile}/>
+               <Button title="Save Changes" onClick={handleUpdateProfile}/>
 
             </Form>
 
