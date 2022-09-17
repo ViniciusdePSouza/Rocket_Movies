@@ -10,7 +10,6 @@ export const Container = styled.div`
     "content";
 
     >div {
-        grid-area: content;
         padding: 5rem 10.6rem;
         overflow-y: auto;
 

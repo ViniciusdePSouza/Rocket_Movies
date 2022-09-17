@@ -1,7 +1,6 @@
 import styled from 'styled-components'
-import { Link } from 'react-router-dom'
 
-export const Container = styled(Link)`
+export const Container = styled.div`
     grid-area: header;
 
     width: 100%;
@@ -47,9 +46,12 @@ export const Container = styled(Link)`
             font-size: 1rem;
             line-height: 1.8rem;
 
-           a {
+           button {
             color: ${({ theme }) => theme.COLORS.GREY};
             justify-self: flex-end;
+
+            border:none;
+            background: transparent;
            }
         }
     }
