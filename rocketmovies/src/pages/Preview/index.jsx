@@ -11,6 +11,8 @@ import { Link } from 'react-router-dom'
 import { useAuth } from '../../hooks/auth'
 import { api } from '../../services/api'
 
+import avatarPlaceHolder from '../../assets/avatar_placeholder.svg'
+
 import { FiClock, FiArrowLeft } from 'react-icons/fi'
 
 export function Preview() {
@@ -41,7 +43,7 @@ export function Preview() {
 
                 <BoxContent>
                     <img src={avatarURL} alt="User Photo" />
-                    <span> Vinícius de Paula</span>
+                    <span>{user.name}</span>
                     <FiClock />
                     <span>23/05/22 às 08:00</span>
                 </BoxContent>

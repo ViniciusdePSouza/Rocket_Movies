@@ -2,6 +2,7 @@ import { Container } from './styles'
 import { Input } from '../Input'
 
 import { api } from '../../services/api'
+import avatarPlaceHolder from '../../assets/avatar_placeholder.svg'
 
 import { Link } from 'react-router-dom'
 
@@ -23,7 +24,7 @@ export function Header(){
 
             <div>
                 <div>
-                    <Link to='/profile'>Vinícius</Link>
+                    <Link to='/profile'>{ user.name }</Link>
                     <button onClick={ signOut }>Sair</button>
                 </div>
 
