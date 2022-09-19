@@ -1,12 +1,16 @@
 import { Container } from './styles'
 import { Input } from '../Input'
 
+import { api } from '../../services/api'
+
 import { Link } from 'react-router-dom'
 
 import { useAuth } from '../../hooks/auth'
 
 export function Header(){
-    const { signOut } = useAuth()
+    const { signOut, user } = useAuth()
+
+    const avatarURL = user.avatar ? `${api.defaults.baseURL}/${user.avatar}` : avatarPlaceHolder
 
     return(
         <Container to="/profile">
@@ -23,7 +27,7 @@ export function Header(){
                     <button onClick={ signOut }>Sair</button>
                 </div>
 
-                <img src="https://github.com/ViniciusdePSouza.png" alt="User Photo" />
+                <img src={avatarURL} alt="User Photo" />
             </div>
 
         </Container>

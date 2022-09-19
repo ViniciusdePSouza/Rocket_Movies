@@ -8,9 +8,16 @@ import { Tag } from '../../components/Tag'
 
 import { Link } from 'react-router-dom'
 
+import { useAuth } from '../../hooks/auth'
+import { api } from '../../services/api'
+
 import { FiClock, FiArrowLeft } from 'react-icons/fi'
 
 export function Preview() {
+    const { user } = useAuth()
+
+    const avatarURL = user.avatar ? `${api.defaults.baseURL}/${user.avatar}` : avatarPlaceHolder
+
     return (
         <Container>
             <Header />
@@ -33,7 +40,7 @@ export function Preview() {
                 </BoxContent>
 
                 <BoxContent>
-                    <img src="https://github.com/ViniciusdePSouza.png" alt="User Photo" />
+                    <img src={avatarURL} alt="User Photo" />
                     <span> Vinícius de Paula</span>
                     <FiClock />
                     <span>23/05/22 às 08:00</span>
