@@ -2,11 +2,26 @@ import { Container, ButtonAdd, Content, Section } from './styles'
 
 import { Input } from '../../components/Input'
 
+import { useState, useEffect } from 'react'
+
+import { api } from '../../services/api'
+
 import { Card } from '../../components/Card'
 import { Header } from '../../components/Header'
 import { FiPlus } from 'react-icons/fi'
 
 export function Home() {
+  const [notes, setNotes] = useState([])
+
+  useEffect(() => {
+    async function fetchNotes() {
+      const response = await api.get('/notes')
+      setNotes(response.data)
+    }
+
+    fetchNotes()
+  })
+
   return (
     <Container>
       <Header />
@@ -21,29 +36,13 @@ export function Home() {
         </Section>
 
         <Content>
-          <Card data={{
-            title: "Interestellar",
-            tags:[
-              {id: 1, name: 'Science Fiction'},
-              {id: 2, name: 'Comedy'},
-              {id: 3, name: 'Drama'}  
-            ]
-          }}/>
-          <Card data={{
-            title: "Hobbit",
-            tags:[
-              {id: 1, name: 'Science Fiction'},
-              {id: 2, name: 'Comedy'},
-              {id: 3, name: 'Fantasy'}  
-            ]
-          }}/>
-          <Card data={{
-            title: "Memento",
-            tags:[,
-              {id: 1, name: 'Action'},
-              {id: 2, name: 'Drama'}  
-            ]
-          }}/>
+          {
+            notes.map(note => (
+              <Card
+                key={String(note.id)}
+                data={note} />
+            ))
+          }
         </Content>
       </div>
 

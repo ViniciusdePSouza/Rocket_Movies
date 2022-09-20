@@ -17,7 +17,7 @@ export function Card({ data, ...rest }) {
                <img src={EmptyStar}  alt="" />
             </RatingBox>
 
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cupiditate quas quos ratione ullam corrupti provident saepe, dolorem enim explicabo asperiores quam temporibus odit dolores, soluta aliquam aperiam eligendi, ipsa totam?</p>
+            <p>{data.description}</p>
 
             {
                 data.tags &&
