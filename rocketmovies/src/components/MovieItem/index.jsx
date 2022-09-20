@@ -13,7 +13,7 @@ export function MovieItem({ isNew, value, onClick, ...rest }) {
 
             <button 
                 type="button"
-                onclick={onClick}
+                onClick={onClick}
                 className={isNew ? 'button-add' : 'button-delete'}
             >
                 {isNew ? <FiPlus/> : <FiX/>}
