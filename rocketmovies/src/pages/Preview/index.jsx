@@ -22,7 +22,7 @@ export function Preview() {
     const { user } = useAuth()
     const params = useParams()
 
-    const [data, setData] = useState(null)
+    const [data, setData] = useState([])
 
     const avatarURL = user.avatar ? `${api.defaults.baseURL}/${user.avatar}` : avatarPlaceHolder
 
