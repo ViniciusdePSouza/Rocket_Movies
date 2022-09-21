@@ -82,3 +82,26 @@ export const RatingBox = styled.div`
 
         margin-top: .8rem;
 `
+
+export const ExcludeButton = styled.button`
+    width: 20%;
+
+    height: 5.6rem;
+    text-align: center;
+
+    padding: 1.7rem 0;
+
+    background-color: ${({ theme }) => theme.COLORS.BLACK_002};
+    color: ${({ theme }) => theme.COLORS.PINK};
+
+    border: none;
+    border-radius: 10px;
+
+    margin: 4rem 0 3.2rem;
+
+
+    &:disabled {
+        opacity: 0.5;
+        cursor: disabled;
+    }
+`

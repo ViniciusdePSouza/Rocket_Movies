@@ -1,4 +1,4 @@
-import { Container, BoxContent, Content, RatingBox } from './styles'
+import { Container, BoxContent, Content, RatingBox, ExcludeButton } from './styles'
 
 import EmptyStar from '../../assets/emptystar.svg'
 import Star from '../../assets/starfilled.svg'
@@ -9,7 +9,7 @@ import { Tag } from '../../components/Tag'
 import { useState, useEffect } from 'react'
 
 import { Link } from 'react-router-dom'
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 
 import { useAuth } from '../../hooks/auth'
 import { api } from '../../services/api'
@@ -21,10 +21,20 @@ import { FiClock, FiArrowLeft } from 'react-icons/fi'
 export function Preview() {
     const { user } = useAuth()
     const params = useParams()
+    const navigate = useNavigate()
 
     const [data, setData] = useState([])
 
     const avatarURL = user.avatar ? `${api.defaults.baseURL}/${user.avatar}` : avatarPlaceHolder
+
+    async function handleExclude() {
+        const confirm = window.confirm('Are you sure you want to exclude this note')
+
+        if(confirm) {
+            await api.delete(`/notes/${params.id}`)
+            navigate('/')
+        }
+    }
 
     useEffect(() => {
         async function fetchNote() {
@@ -76,6 +86,8 @@ export function Preview() {
                             </div>
                         }
                         <p>{data.description}</p>
+
+                       <ExcludeButton name="exclude" onClick={handleExclude}>Exclude Note</ExcludeButton>
                     </Content>
                 </main>
             }
