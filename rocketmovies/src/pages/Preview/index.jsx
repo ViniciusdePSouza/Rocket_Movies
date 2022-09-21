@@ -30,7 +30,6 @@ export function Preview() {
         async function fetchNote() {
             const response = await api.get(`/notes/${params.id}`)
             setData(response.data)
-            console.log(data)
         }
 
         fetchNote()
@@ -38,43 +37,48 @@ export function Preview() {
 
     return (
         <Container>
-            <Header />
+            {data &&
+                <main>
 
-            <Content>
-                <Link to="/">
-                    <FiArrowLeft /> Voltar
-                </Link>
+                    <Header />
 
-                <BoxContent>
-                    <h1>{data.title}</h1>
+                    <Content>
+                        <Link to="/">
+                            <FiArrowLeft /> Voltar
+                        </Link>
 
-                    <RatingBox>
-                        <img src={Star} alt="" />
-                        <img src={Star} alt="" />
-                        <img src={Star} alt="" />
-                        <img src={Star} alt="" />
-                        <img src={EmptyStar} alt="" />
-                    </RatingBox>
-                </BoxContent>
+                        <BoxContent>
+                            <h1>{data.title}</h1>
 
-                <BoxContent>
-                    <img src={avatarURL} alt="User Photo" />
-                    <span>{user.name}</span>
-                    <FiClock />
-                    <span>{data.updated_at}</span>
-                </BoxContent>
+                            <RatingBox>
+                                <img src={Star} alt="" />
+                                <img src={Star} alt="" />
+                                <img src={Star} alt="" />
+                                <img src={Star} alt="" />
+                                <img src={EmptyStar} alt="" />
+                            </RatingBox>
+                        </BoxContent>
 
-                {
-                    data.tags &&
-                        <div className='tag-wrapper'>
-                            { data.tags.map(tag => (
-                                <Tag key={tag.id} title={tag.tag_name} />
-                                ))
-                            }
-                        </div>
-                }
-                <p>{data.description}</p>
-            </Content>
+                        <BoxContent>
+                            <img src={avatarURL} alt="User Photo" />
+                            <span>{user.name}</span>
+                            <FiClock />
+                            <span>{data.updated_at}</span>
+                        </BoxContent>
+                        {
+                            data.tags &&
+                            <div className='tag-wrapper'>
+                                {
+                                    data.tags.map(tag =>(
+                                    <Tag key={tag.id} title={tag.tag_name} />
+                                    ))
+                                }
+                            </div>
+                        }
+                        <p>{data.description}</p>
+                    </Content>
+                </main>
+            }
         </Container>
     )
 }
