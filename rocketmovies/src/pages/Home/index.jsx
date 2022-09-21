@@ -2,15 +2,25 @@ import { Container, ButtonAdd, Content, Section } from './styles'
 
 import { useState, useEffect } from 'react'
 
+import { Link } from 'react-router-dom'
+
 import { api } from '../../services/api'
+
+import { useNavigate } from 'react-router-dom'
 
 import { Card } from '../../components/Card'
 import { Header } from '../../components/Header'
 import { FiPlus } from 'react-icons/fi'
 
 export function Home() {
+  const navigate = useNavigate()
+
   const [notes, setNotes] = useState([])
   const [tags, setTags] = useState([])
+
+  function handlePreview(id) {
+    navigate(`/preview/${id}`)
+  }
 
   useEffect(() => {
     async function fetchTags() {
@@ -31,9 +41,6 @@ export function Home() {
           queryString = queryString + `,${tags[i].tag_name}`
         }
       }
-
-      console.log(queryString)
-
      await api.get(`/notes?user_id&title&movie_tags=${queryString}`).then(response => setNotes(response.data))
     }
 
@@ -59,7 +66,9 @@ export function Home() {
             notes.map(note => (
               <Card
                 key={note.id}
-                data={note} />
+                data={note}
+                onClick={() => handlePreview(note.id)} 
+                />
             ))
           }
         </Content>

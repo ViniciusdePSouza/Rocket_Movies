@@ -6,7 +6,10 @@ import Star from '../../assets/starfilled.svg'
 import { Header } from '../../components/Header'
 import { Tag } from '../../components/Tag'
 
+import { useState, useEffect } from 'react'
+
 import { Link } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 
 import { useAuth } from '../../hooks/auth'
 import { api } from '../../services/api'
@@ -17,8 +20,21 @@ import { FiClock, FiArrowLeft } from 'react-icons/fi'
 
 export function Preview() {
     const { user } = useAuth()
+    const params = useParams()
+
+    const [data, setData] = useState(null)
 
     const avatarURL = user.avatar ? `${api.defaults.baseURL}/${user.avatar}` : avatarPlaceHolder
+
+    useEffect(() => {
+        async function fetchNote() {
+            const response = await api.get(`/notes/${params.id}`)
+            setData(response.data)
+            console.log(data)
+        }
+
+        fetchNote()
+    }, [])
 
     return (
         <Container>
@@ -30,7 +46,7 @@ export function Preview() {
                 </Link>
 
                 <BoxContent>
-                    <h1>Interestellar</h1>
+                    <h1>{data.title}</h1>
 
                     <RatingBox>
                         <img src={Star} alt="" />
@@ -45,37 +61,19 @@ export function Preview() {
                     <img src={avatarURL} alt="User Photo" />
                     <span>{user.name}</span>
                     <FiClock />
-                    <span>23/05/22 às 08:00</span>
+                    <span>{data.updated_at}</span>
                 </BoxContent>
 
-
-               <div className='tag-wrapper'>
-                    <Tag title="Science Fiction"/>
-                    <Tag title="Drama"/>
-                    <Tag title="Blow Mind"/>
-               </div>
-
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus dolorem, architecto
-                    tempora voluptatem nam voluptate voluptas eius ab magnam corporis dolor ad maiores nemo asperiores
-                    aliquam minus! Et, quos laborum.
-
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iste dolores illum repellat molestias
-                    omnis? Eos tempora accusamus a saepe molestias aliquid et culpa labore! Tenetur dolore deserunt
-                    numquam distinctio natus?
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iste dolores illum repellat molestias
-                    omnis? Eos tempora accusamus a saepe molestias aliquid et culpa labore! Tenetur dolore deserunt
-                    numquam distinctio natus?
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iste dolores illum repellat molestias
-                    omnis? Eos tempora accusamus a saepe molestias aliquid et culpa labore! Tenetur dolore deserunt
-                    numquam distinctio natus?
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iste dolores illum repellat molestias
-                    omnis? Eos tempora accusamus a saepe molestias aliquid et culpa labore! Tenetur dolore deserunt
-                    numquam distinctio natus?
-
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iste dolores illum repellat molestias
-                    omnis? Eos tempora accusamus a saepe molestias aliquid et culpa labore! Tenetur dolore deserunt
-                    numquam distinctio natus?
-                    </p>
+                {
+                    data.tags &&
+                        <div className='tag-wrapper'>
+                            { data.tags.map(tag => (
+                                <Tag key={tag.id} title={tag.tag_name} />
+                                ))
+                            }
+                        </div>
+                }
+                <p>{data.description}</p>
             </Content>
         </Container>
     )
